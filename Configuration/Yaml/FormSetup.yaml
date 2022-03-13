@@ -1,0 +1,8 @@
+TYPO3:
+  CMS:
+    Form:
+      persistenceManager:
+        allowSaveToExtensionPaths: true
+        allowDeleteFromExtensionPaths: false
+        allowedExtensionPaths:
+          10: EXT:tinyclassifieds/Resources/Private/Plugins/Form/Forms/

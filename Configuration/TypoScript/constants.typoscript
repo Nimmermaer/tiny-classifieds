@@ -1,0 +1,21 @@
+plugin {
+  tx_tinyclassifieds {
+    view {
+      # cat=Tinyclassifieds/Template/100; type=string; label= Path to template root (FE)
+      templateRootPath = EXT:tinyclassifieds/Resources/Private/Templates/
+      # cat=Tinyclassifieds/Partial/100; type=string; label= Path to template partials (FE)
+      partialRootPath = EXT:tinyclassifieds/Resources/Private/Partials/
+      # cat=Tinyclassifieds/Layout/100; type=string; label= Path to template layouts (FE)
+      layoutRootPath = EXT:tinyclassifieds/Resources/Private/Layouts/
+    }
+
+    settings {
+      storagePids {
+        # cat=Tinyclassifieds/Settings/Storagepids/author; type=integer; label= Storage Pid for authors
+        author =
+        # cat=Tinyclassifieds/Settings/Storagepids/classifieds; type=integer; label= Storage Pid for classified
+        classifieds =
+      }
+    }
+  }
+}

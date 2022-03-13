@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Nimmermaer\Tinyclassifieds\Domain\Model;
 
 
+use TYPO3\CMS\Extbase\Domain\Model\FrontendUser;
+
 /**
  * This file is part of the "tinyclassifieds" Extension for TYPO3 CMS.
  *
@@ -48,7 +50,7 @@ class Classifieds extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * author
      *
-     * @var \Nimmermaer\Tinyclassifieds\Domain\Model\Author
+     * @var FrontendUser
      */
     protected $author = null;
 
@@ -118,7 +120,7 @@ class Classifieds extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the author
      *
-     * @return \Nimmermaer\Tinyclassifieds\Domain\Model\Author $author
+     * @return FrontendUser $author
      */
     public function getAuthor()
     {
@@ -128,10 +130,10 @@ class Classifieds extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the author
      *
-     * @param \Nimmermaer\Tinyclassifieds\Domain\Model\Author $author
+     * @param FrontendUser $author
      * @return void
      */
-    public function setAuthor(\Nimmermaer\Tinyclassifieds\Domain\Model\Author $author)
+    public function setAuthor(FrontendUser $author)
     {
         $this->author = $author;
     }

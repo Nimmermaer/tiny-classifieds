@@ -1,0 +1,21 @@
+mod {
+  wizards {
+    newContentElement {
+      wizardItems {
+        common {
+          elements {
+            tinyclassifieds_list {
+              iconIdentifier = content-special-menu
+              title = LLL:EXT:tinyclassifieds/Resources/Private/Language/locallang_db.xlf:tt_content.tinyclassifieds_list
+              description = LLL:EXT:tinyclassifieds/Resources/Private/Language/locallang_db.xlf:tt_content.tinyclassifieds_list.description
+              tt_content_defValues {
+                CType = tinyclassifieds_list
+              }
+            }
+          }
+          show := addToList(tinyclassifieds_list)
+        }
+      }
+    }
+  }
+}

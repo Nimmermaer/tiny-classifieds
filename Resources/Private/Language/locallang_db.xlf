@@ -21,6 +21,12 @@
 			<trans-unit id="tx_tinyclassifieds_domain_model_author" resname="tx_tinyclassifieds_domain_model_author">
 				<source>Author</source>
 			</trans-unit>
+			<trans-unit id="tt_content.tinyclassifieds_list" resname="tx_tinyclassifieds_domain_model_author">
+				<source>List</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tinyclassifieds_list.description" resname="tx_tinyclassifieds_domain_model_author">
+				<source>List with classified records</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

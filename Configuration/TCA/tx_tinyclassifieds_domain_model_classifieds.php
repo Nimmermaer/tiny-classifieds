@@ -20,7 +20,7 @@ return [
         'iconfile' => 'EXT:tinyclassifieds/Resources/Public/Icons/tx_tinyclassifieds_domain_model_classifieds.gif'
     ],
     'types' => [
-        '1' => ['showitem' => 'title, text, image, author, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'title, price, text, image, author, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -104,6 +104,16 @@ return [
                 'default' => ''
             ],
         ],
+        'price' => [
+            'exclude' => false,
+            'label' => 'LLL:EXT:tinyclassifieds/Resources/Private/Language/locallang_db.xlf:tx_tinyclassifieds_domain_model_classifieds.price',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim,required',
+                'default' => ''
+            ],
+        ],
         'text' => [
             'exclude' => false,
             'label' => 'LLL:EXT:tinyclassifieds/Resources/Private/Language/locallang_db.xlf:tx_tinyclassifieds_domain_model_classifieds.text',
@@ -120,7 +130,7 @@ return [
                 'rows' => 15,
                 'eval' => 'trim,required',
             ],
-            
+
         ],
         'image' => [
             'exclude' => false,
@@ -173,7 +183,7 @@ return [
                 ],
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
             ),
-            
+
         ],
         'author' => [
             'exclude' => true,
@@ -188,6 +198,6 @@ return [
             ],
 
         ],
-    
+
     ],
 ];
