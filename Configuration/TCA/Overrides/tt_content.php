@@ -13,3 +13,5 @@ defined('TYPO3') || die();
     'textmedia',
     'after'
 );
+
+$GLOBALS['TCA']['tt_content']['types']['tinyclassifieds_list'] = $GLOBALS['TCA']['tt_content']['types']['text'];

@@ -1,0 +1,14 @@
+TCEFORM {
+  tt_content {
+    bodytext {
+      types {
+        tinyclassifieds_list.disabled = 1
+      }
+    }
+    subheader {
+      types {
+        tinyclassifieds_list.disabled = 1
+      }
+    }
+  }
+}
