@@ -39,6 +39,12 @@ tt_content {
         pidInList = {$plugin.tx_tinyclassifieds.settings.storagePids.classifieds}
         as = classifieds
         dataProcessing {
+
+          1646818364 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+          1646818364 {
+            references.fieldName = image
+            as = image
+          }
           1647206186 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
           1647206186 {
             table = fe_users
