@@ -9,7 +9,7 @@
 .. _start:
 
 =============================================================
-tinyclassifieds
+Tiny Classifieds
 =============================================================
 
 :Version:
@@ -46,11 +46,6 @@ If you find an error or something is missing, please:
 **Extension Manual**
 
 This documentation is for the TYPO3 extension tinyclassifieds.
-
-**For Contributors**
-
-You are welcome to help improve this guide.
-Just click on "Edit me on GitHub" on the top right to submit your change request.
 
 .. toctree::
    :maxdepth: 3
