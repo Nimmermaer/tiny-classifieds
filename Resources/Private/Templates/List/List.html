@@ -1,0 +1,34 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<ul>
+    <f:for each="{advertisements}" as="classified">
+        <li>{classified.title} from {classified.author.username}
+            <f:if condition="{classified.images.0}">
+                <f:image width="200" image="{classified.images.0}"/>
+            </f:if>
+        </li>
+        <f:link.email
+            email="{classified.author.email}?subject={f:format.urlencode(value: 'Anzeige {classified.title}' )}"
+            additionalAttributes="{subject:'Email'}">E-Mail
+        </f:link.email>
+        <f:format.currency currencySign="€">{classified.price}</f:format.currency>
+    </f:for>
+</ul>
+<ul style="list-style: none; display: flex; justify-content: center;">
+    <f:if condition="{pagination.previousPageNumber}">
+        <li style="margin: 0 10px;">
+            <f:link.action arguments="{page:pagination.previousPageNumber}">&laquo;</f:link.action>
+        </li>
+    </f:if>
+    <f:for each="{pagination.allPageNumbers}" as="pn">
+        <li style="margin: 0 10px;">
+            <f:link.action arguments="{page:pn}">{pn}</f:link.action>
+        </li>
+    </f:for>
+    <f:if condition="{pagination.nextPageNumber}">
+        <li style="margin: 0 10px;">
+            <f:link.action arguments="{page:pagination.nextPageNumber}">&raquo;</f:link.action>
+        </li>
+    </f:if>
+</ul>
+</html>

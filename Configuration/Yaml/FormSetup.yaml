@@ -5,4 +5,4 @@ TYPO3:
         allowSaveToExtensionPaths: true
         allowDeleteFromExtensionPaths: false
         allowedExtensionPaths:
-          10: EXT:tinyclassifieds/Resources/Private/Plugins/Form/Forms/
+          10: EXT:tinyclassifieds/Configuration/Yaml/Form/

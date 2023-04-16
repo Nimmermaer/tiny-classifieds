@@ -1,4 +1,10 @@
 <?php
+
+declare(strict_types=1);
+
+use TYPO3\CMS\Core\Resource\File;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:tinyclassifieds/Resources/Private/Language/locallang_db.xlf:tx_tinyclassifieds_domain_model_classifieds',
@@ -17,10 +23,12 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'title,text',
-        'iconfile' => 'EXT:tinyclassifieds/Resources/Public/Icons/tx_tinyclassifieds_domain_model_classifieds.gif'
+        'iconfile' => 'EXT:tinyclassifieds/Resources/Public/Icons/tx_tinyclassifieds_domain_model_classifieds.gif',
     ],
     'types' => [
-        '1' => ['showitem' => 'title, price, text, image, author, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '1' => [
+            'showitem' => 'title, price, text, images, author, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime',
+        ],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -59,8 +67,8 @@ return [
                     [
                         0 => '',
                         1 => '',
-                        'invertStateDisplay' => true
-                    ]
+                        'invertStateDisplay' => true,
+                    ],
                 ],
             ],
         ],
@@ -73,8 +81,8 @@ return [
                 'eval' => 'datetime,int',
                 'default' => 0,
                 'behaviour' => [
-                    'allowLanguageSynchronization' => true
-                ]
+                    'allowLanguageSynchronization' => true,
+                ],
             ],
         ],
         'endtime' => [
@@ -86,11 +94,11 @@ return [
                 'eval' => 'datetime,int',
                 'default' => 0,
                 'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
+                    'upper' => mktime(0, 0, 0, 1, 1, 2038),
                 ],
                 'behaviour' => [
-                    'allowLanguageSynchronization' => true
-                ]
+                    'allowLanguageSynchronization' => true,
+                ],
             ],
         ],
 
@@ -101,7 +109,7 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim,required',
-                'default' => ''
+                'default' => '',
             ],
         ],
         'price' => [
@@ -110,8 +118,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim,required',
-                'default' => ''
+                'eval' => 'trim,required,double2',
+                'default' => '',
             ],
         ],
         'text' => [
@@ -132,54 +140,56 @@ return [
             ],
 
         ],
-        'image' => [
+        'images' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:tinyclassifieds/Resources/Private/Language/locallang_db.xlf:tx_tinyclassifieds_domain_model_classifieds.image',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'image',
+            'label' => 'LLL:EXT:tinyclassifieds/Resources/Private/Language/locallang_db.xlf:tx_tinyclassifieds_domain_model_classifieds.images',
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
+                'images',
                 [
                     'appearance' => [
-                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
-                    ],
-                    'foreign_types' => [
-                        '0' => [
-                            'showitem' => '
-                            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                            --palette--;;filePalette'
-                        ],
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
-                            'showitem' => '
-                            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                            --palette--;;filePalette'
-                        ],
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                            'showitem' => '
-                            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                            --palette--;;filePalette'
-                        ],
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
-                            'showitem' => '
-                            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                            --palette--;;filePalette'
-                        ],
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
-                            'showitem' => '
-                            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                            --palette--;;filePalette'
-                        ],
-                        \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
-                            'showitem' => '
-                            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                            --palette--;;filePalette'
-                        ]
+                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
                     ],
                     'foreign_match_fields' => [
-                        'fieldname' => 'image',
+                        'fieldname' => 'images',
                         'tablenames' => 'tx_tinyclassifieds_domain_model_classifieds',
                         'table_local' => 'sys_file',
                     ],
                     'maxitems' => 1,
-                    'minitems' => 1
+                    'minitems' => 1,
+                    'overrideChildTca' => [
+                        'types' => [
+                            '0' => [
+                                'showitem' => '
+                            --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette',
+                            ],
+                            File::FILETYPE_TEXT => [
+                                'showitem' => '
+                            --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette',
+                            ],
+                            File::FILETYPE_IMAGE => [
+                                'showitem' => '
+                            --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette',
+                            ],
+                            File::FILETYPE_AUDIO => [
+                                'showitem' => '
+                            --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette',
+                            ],
+                            File::FILETYPE_VIDEO => [
+                                'showitem' => '
+                            --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette',
+                            ],
+                            File::FILETYPE_APPLICATION => [
+                                'showitem' => '
+                            --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                            --palette--;;filePalette',
+                            ],
+                        ],
+                    ],
                 ],
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
             ),
@@ -198,6 +208,5 @@ return [
             ],
 
         ],
-
     ],
 ];

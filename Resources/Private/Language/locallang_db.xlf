@@ -12,11 +12,14 @@
 			<trans-unit id="tx_tinyclassifieds_domain_model_classifieds.text" resname="tx_tinyclassifieds_domain_model_classifieds.text">
 				<source>Text</source>
 			</trans-unit>
-			<trans-unit id="tx_tinyclassifieds_domain_model_classifieds.image" resname="tx_tinyclassifieds_domain_model_classifieds.image">
-				<source>Image</source>
+			<trans-unit id="tx_tinyclassifieds_domain_model_classifieds.images" resname="tx_tinyclassifieds_domain_model_classifieds.images">
+				<source>Images</source>
 			</trans-unit>
 			<trans-unit id="tx_tinyclassifieds_domain_model_classifieds.author" resname="tx_tinyclassifieds_domain_model_classifieds.author">
 				<source>Author</source>
+			</trans-unit>
+			<trans-unit id="tx_tinyclassifieds_domain_model_classifieds.price" resname="tx_tinyclassifieds_domain_model_classifieds.price">
+				<source>Price</source>
 			</trans-unit>
 			<trans-unit id="tx_tinyclassifieds_domain_model_author" resname="tx_tinyclassifieds_domain_model_author">
 				<source>Author</source>

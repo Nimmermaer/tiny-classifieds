@@ -1,0 +1,2 @@
+@import 'EXT:tinyclassifieds/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig'
+@import 'EXT:tinyclassifieds/Configuration/TsConfig/TCEForm.tsconfig'

@@ -1,4 +1,9 @@
 <?php
+
+declare(strict_types=1);
+
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3') || die();
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('tinyclassifieds', 'Configuration/TypoScript', 'tinyclassifieds');
+ExtensionManagementUtility::addStaticFile('tinyclassifieds', 'Configuration/TypoScript', 'tinyclassifieds');

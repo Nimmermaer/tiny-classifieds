@@ -1,8 +1,14 @@
 <?php
+
+declare(strict_types=1);
+
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
 defined('TYPO3') || die();
 
 // Adds the content element to the "Type" dropdown
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
@@ -12,6 +18,13 @@ defined('TYPO3') || die();
     ],
     'textmedia',
     'after'
+);
+
+ExtensionUtility::registerPlugin(
+    'tinyclassifieds',
+    'list',
+    'List',
+    'actions-list-alternative'
 );
 
 $GLOBALS['TCA']['tt_content']['types']['tinyclassifieds_list'] = $GLOBALS['TCA']['tt_content']['types']['text'];

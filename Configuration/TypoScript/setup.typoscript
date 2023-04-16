@@ -27,39 +27,3 @@ module.tx_form {
     }
   }
 }
-
-tt_content {
-  tinyclassifieds_list =< lib.contentElement
-  tinyclassifieds_list {
-    templateName = TinyclassifiedsList
-    dataProcessing {
-      1647206071 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-      1647206071 {
-        table = tx_tinyclassifieds_domain_model_classifieds
-        pidInList = {$plugin.tx_tinyclassifieds.settings.storagePids.classifieds}
-        as = classifieds
-        dataProcessing {
-
-          1646818364 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-          1646818364 {
-            references.fieldName = image
-            as = image
-          }
-          1647206186 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-          1647206186 {
-            table = fe_users
-            pidInList = {$plugin.tx_tinyclassifieds.settings.storagePids.author}
-            where = fe_users.deleted1 = 0 AND fe_users.hidden = 0
-            where {
-              data = field:author
-              intval = 1
-              wrap = uid=|
-            }
-            max = 1
-            as = author
-          }
-        }
-      }
-    }
-  }
-}

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $EM_CONF[$_EXTKEY] = [
     'title' => 'tinyclassifieds',
     'description' => '',
@@ -7,7 +9,6 @@ $EM_CONF[$_EXTKEY] = [
     'author' => 'Michael Blunck',
     'author_email' => 'mi.blunck@gmail.com',
     'state' => 'alpha',
-    'clearCacheOnLoad' => 0,
     'version' => '1.0.0',
     'constraints' => [
         'depends' => [

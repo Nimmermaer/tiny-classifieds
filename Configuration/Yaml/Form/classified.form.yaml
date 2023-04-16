@@ -12,15 +12,15 @@ finishers:
       contentElementUid: ''
     identifier: Confirmation
   -
-    identifier: SaveToDatabase
     options:
-      - table: tx_tinyclassifieds_domain_model_classifieds
+      -
+        table: tx_tinyclassifieds_domain_model_classifieds
         mode: insert
         elements:
           title:
             mapOnDatabaseColumn: title
           imageupload-1:
-            mapOnDatabaseColumn: image
+            mapOnDatabaseColumn: images
           description:
             mapOnDatabaseColumn: text
           author:
@@ -36,7 +36,8 @@ finishers:
             value: '{__currentTimestamp}'
           hidden:
             value: 1
-      - table: sys_file_reference
+      -
+        table: sys_file_reference
         mode: insert
         elements:
           imageupload-1:
@@ -48,14 +49,15 @@ finishers:
           tablenames:
             value: tx_tinyclassifieds_domain_model_classifieds
           fieldname:
-            value: image
+            value: images
           tstamp:
             value: '{__currentTimestamp}'
           crdate:
             value: '{__currentTimestamp}'
           uid_foreign:
             value: '{SaveToDatabase.insertedUids.0}'
-      - table: sys_file_reference
+      -
+        table: sys_file_reference
         mode: update
         whereClause:
           uid_foreign: '{SaveToDatabase.insertedUids.0}'
@@ -65,7 +67,21 @@ finishers:
             value: 0
           uid_foreign:
             value: 0
-
+    identifier: SaveToDatabase
+  -
+    options:
+      subject: 'Neue Anzeige:  {title}'
+      recipients:
+        '': ''
+      senderAddress: '{author}'
+      senderName: TYPO3
+      addHtmlPart: true
+      attachUploads: true
+      translation:
+        language: Default
+      useFluidEmail: true
+      title: ''
+    identifier: EmailToReceiver
 renderables:
   -
     renderingOptions:
